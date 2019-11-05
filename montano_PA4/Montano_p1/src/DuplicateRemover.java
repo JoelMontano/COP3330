@@ -1,3 +1,4 @@
+import java.nio.file.Files;
 import java.util.Scanner;
 import java.util.Set;
 import java.io.File;
@@ -6,6 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.io.*;
 
 public class DuplicateRemover {
     private Set<String> uniqueWords;
@@ -26,11 +28,11 @@ public class DuplicateRemover {
         String word2;
 
         if(file.exists()){
-            filew = new FileWriter(file, true);
+            filew = new FileWriter(file);
             Iterator iterate = uniqueWords.iterator();
 
             while(iterate.hasNext()) {
-                word2 = (String) iterate.next();
+                word2 = (String)iterate.next();
                 filew.write(word2 + "\n");
             }
             filew.close();
